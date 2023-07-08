@@ -1,0 +1,310 @@
+*{padding: 0;margin: 0;border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding:0;border:0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
+
+body{
+    background: #333;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.none{
+    transform: scale(0);
+}
+
+.dont{
+    overflow: hidden;
+}
+
+._container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* HEADER */
+
+.header{
+    width: 100%;
+    background: #666;
+    position: fixed;
+    transition: .2s ease-in-out;
+}
+.header__body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 120px;
+}
+.header__logo{
+    color: #333;
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.header__list{
+    display: flex;
+}
+.header__link{
+    margin-left: 20px;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+    position: relative;
+}
+.header__link:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #333;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: .2s linear;
+}
+.header__link:hover:after{
+    opacity: 1;
+}
+.header__burger{
+    display: none;
+    width: 30px;
+    height: 18px;
+    position: relative;
+    align-items: center;
+    z-index: 50;
+}
+.header__burger span{
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    transform: scale(1);
+    transition: .3s linear;
+}
+.header__burger.active span{
+    transform: scale(0);
+}
+.header__burger::before, .header__burger::after{
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    position: absolute;
+    right: 0;
+    transition: .3s linear;
+}
+.header__burger::before{
+    top: 0;
+} 
+.header__burger::after{
+    bottom: 0;
+}
+.header__burger.active::before{
+    top: 50%;
+    transform: translate(0, -50%) rotate(45deg);
+} 
+.header__burger.active::after{
+    bottom: 50%;
+    transform: translate(0, 50%) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+    .header__burger{
+        display: flex;
+    }
+    .header__nav{
+        width: 100%;
+        height: 100%;
+        background: #666;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: -100%;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        padding: 40px 50px;
+        transition: .3s linear;
+        z-index: 50;
+    }
+    .header__list{
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+    .open{
+        top: 0;
+    }
+}
+
+/* MAIN */
+
+.main{
+    transition: .2s ease-in-out;
+}
+
+p{
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 100px;
+}
+
+.arrow {
+    border: solid #333;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 6px;
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.back_to_top{
+    position: fixed;
+    right: 50px;
+    bottom: -50px;
+    background: #666;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+.back_to_top.active{
+    bottom: 50px;
+    transition: .3s linear;
+}
+
+/* MAIN LOGIN */
+
+.main__logIn{
+    position: fixed;
+    width: 100%;
+    max-width: 500px;
+    height: 700px;
+    background: #333;
+    left: 50%;
+    top: 50%;
+    transform: scale(0) translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 700px;
+    border-radius: 40px;
+    box-shadow: 0px 0px 30px #666;
+    transition: .3s ease-in-out;
+}
+.main__logIn form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.x{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #666;
+    right: 25px;
+    top: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    cursor: pointer;
+    transition: .1s linear;
+}
+.x:hover{
+    background-color: #949393;
+    box-shadow: 0 0 5px #666;
+}
+.x img{
+    width: 30px;
+}
+::-webkit-input-placeholder{
+    color: #333;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    
+}
+.logIn__item{
+    width: 250px;
+    height: 30px;
+    margin: 15px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    background: #666;
+    color: #262626;
+    transition: .1s linear;
+}
+.logIn__item:hover{
+    background: #949393;
+}
+.logIn__buttons{
+    display: flex;
+}
+.logIn__button{
+    width: 200px;
+    height: 25px;
+    background: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: solid 2px #666;
+    color: #262626;
+    font-size: 18px;
+    font-weight: 700;
+    transition: .1s linear;
+    margin: 10px;
+}
+.logIn__reset{
+    height: 25px;
+    background: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: solid 2px #666;
+    color: #262626;
+    font-size: 18px;
+    font-weight: 700;
+    transition: .1s linear;
+    margin: 10px;
+    
+}
+.logIn__reset:hover{
+    box-shadow: 0 0 5px #666;
+}
+.logIn__button:hover{
+    background: #333;
+    color: #666;
+    box-shadow: 0 0 5px #666;
+}
+
+.main__logIn.active{
+    transform: scale(1, 1) translate(-50%, -50%);
+}
